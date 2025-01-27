@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacmail;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-use App\Models\Appointment;
+use App\Mail\ContactUs;
 
-
-class AppointmentController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('contact');
     }
 
     /**
@@ -23,20 +25,7 @@ class AppointmentController extends Controller
     {
         //
     }
-    public function blog()
-    {
-        return view('layouts.main');
-    }
 
-    public function dash()
-    {
-        return view('layouts.parent1');
-    }
-
-    public function doctor()
-    {
-        return view('hospital.doctors');
-    }
     /**
      * Store a newly created resource in storage.
      */
@@ -50,7 +39,7 @@ class AppointmentController extends Controller
      */
     public function show(string $id)
     {
-        //
+      
     }
 
     /**
@@ -76,4 +65,26 @@ class AppointmentController extends Controller
     {
         //
     }
+
+
+    function send(Request $request){
+
+        $data = request()->validate([
+          'name'=>'required',
+          'email'=>'required',
+      
+          'messege'=>'required'
+  
+  
+  
+  
+        ]);
+  
+        Mail::to('try@gmail.com')->send(new ContactUs($data));
+  
+        return 'email sended';
+        
+  
+         
+      }
 }

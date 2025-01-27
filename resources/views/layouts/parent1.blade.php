@@ -62,6 +62,7 @@
 					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 						<div class="menu_section">
 							<h3>General</h3>
+
               <ul class="nav side-menu">
 								<li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
@@ -69,25 +70,30 @@
 										<li><a href="{{route('dashboard.user.create')}}">Add User</a></li>
 									</ul>
 								</li>
-								<li><a><i class="fa fa-edit"></i> Categories <span class="fa fa-chevron-down"></span></a>
-              
-									<ul class="nav child_menu">
+                
+								<li><a><i class="fa fa-edit"></i> Doctors <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                <li><a href="{{route('dashboard.doctor.index')}}">Doctor List</a></li>
+										<li><a href="{{route('dashboard.doctor.create')}}">Add doctor</a></li>
+                    </ul>
+                    </li>
+
+                    <ul class="nav child_menu">
 										
 									</ul>
 								</li>
-								<li><a><i class="fa fa-desktop"></i> Cars <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-									
-									</ul>
-								</li>
+						
                 <li><a><i class="fa fa-desktop"></i> Testimonials <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-									
+                  <li><a href="{{route('dashboard.doctor.index')}}">Doctor List</a></li>
+                  <li><a href="{{route('dashboard.doctor.create')}}">Add doctor</a></li>
 									</ul>
 								</li>
                 <li><a><i class="fa fa-desktop"></i> Messages <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										
+                
+                  
 									</ul>
 								</li>
 							</ul>
@@ -192,7 +198,7 @@
         <!-- /top navigation -->
 
         <!-- /page content -->
-        @yield('content')
+          @yield('content')
 
         <!-- footer content -->
         <footer>

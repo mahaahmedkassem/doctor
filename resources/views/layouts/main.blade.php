@@ -767,7 +767,7 @@
 			</div>
 		</section>
 		<!-- End Blog Area -->
-		
+		 
 		<!-- Start clients -->
 		
 		<!--/Ens clients -->
@@ -786,7 +786,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-12">
-						<form class="form" action="#">
+						<form class="form" action="{{ route('sendemail')}}" method="post">
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
@@ -843,7 +843,7 @@
 								<div class="col-lg-5 col-md-4 col-12">
 									<div class="form-group">
 										<div class="button">
-											<button type="submit" class="btn">Book An Appointment</button>
+											<button type="submit" class="btn">Book An Appointment </button>
 										</div>
 									</div>
 								</div>
