@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contacmail;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-use App\Mail\ContactUs;
+use App\Models\Department;
+use App\Models\Appointment;
+use Illuminate\Http\RedirectResponse;
 
-class ContactController extends Controller
+
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('contact');
+        return view('dashboard\department\add' );
+
     }
 
     /**
@@ -31,7 +32,16 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages= $this->messages();
+        $data = $request->validate([
+            'departmentName'=>'required',
+           
+
+        ],$messages);
+
+        Department::create($data);
+        // return redirect('dashboard.Department');
+        return('added');
     }
 
     /**
@@ -39,7 +49,7 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-      
+        //
     }
 
     /**
@@ -66,26 +76,12 @@ class ContactController extends Controller
         //
     }
 
+    public function messages(){
+        return [
+            'departmentName.required'=>'The department name field is required.',
+           
+            
 
-    function send(Request $request){
-
-        $data = request()->validate([
-          'name'=>'required',
-          'email'=>'required',
-          'phone'=>'required',
-          'subject'=>'required',
-          'message'=>'required'
-  
-  
-  
-  
-        ]);
-  
-        Mail::to('try@gmail.com')->send(new ContactUs($data));
-  
-        return 'email sended';
-        
-  
-         
-      }
+        ];
+    }
 }

@@ -89,7 +89,7 @@
 							<ul class="top-link">
 								<li><a href="#">About</a></li>
 								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
+								<li><a href="{{route('contactus')}}">contact</a></li>
 								<li><a href="#">FAQ</a></li>
 							</ul>
 							<!-- End Contact -->
@@ -131,7 +131,7 @@
 													<li><a href="index.html">Home Page 1</a></li>
 												</ul>
 											</li>
-											<li><a href="#">Doctos </a></li>
+											<li><a href="#">Doctors </a></li>
 											<li><a href="#">Services </a></li>
 											<li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
@@ -143,7 +143,7 @@
 													<li><a href="blog-single.html">Blog Details</a></li>
 												</ul>
 											</li>
-											<li><a href="contact.html">Contact Us</a></li>
+											<li><a href="{{route('contactus')}}">Contact Us</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -151,7 +151,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a href="appointment.html" class="btn">Book Appointment</a>
+									<a href="{{route('contactus')}}" class="btn">Book Appointment</a>
 								</div>
 							</div>
 						</div>
@@ -786,7 +786,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-12">
-						<form class="form" action="{{ route('sendemail')}}" method="post">
+						<form class="form" action="" method="post">
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
@@ -931,7 +931,7 @@
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
+											<li><a href="{{route('contactus')}}"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
 										</ul>
 									</div>
 								</div>

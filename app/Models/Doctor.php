@@ -15,4 +15,8 @@ class Doctor extends Model
         'image'
         
     ];
+    public function appointment()
+    {
+        return $this->hasMany('App\Models\Appointment');
+    }
 }

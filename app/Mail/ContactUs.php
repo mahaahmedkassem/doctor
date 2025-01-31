@@ -29,8 +29,8 @@ class ContactUs extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Us',
-            from: new address('')
+            from: new Address($this->data['email'], $this->data['name']),
+            subject: $this->data['subject'],
         );
     }
 

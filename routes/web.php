@@ -6,7 +6,8 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DoctorController;
-
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\DepartmentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,8 +30,8 @@ Route::get('doctor',[AppointmentController::class, 'doctor'])->name('doctor');
   ///////////////////////////////////////////////////////////
     
   
-            Route::get('contactus',[ContactController ::class, 'index']);
-            Route::post('sendemail',[ContactController ::class, 'send'])->name('sendemail');
+            Route::get('/contactus',[ContactController ::class, 'index'])->name('contactus');
+            Route::post('/sendemail',[ContactController ::class, 'send'])->name('sendemail');
          
 
       
@@ -76,6 +77,27 @@ Route::group(['prefix' => 'doctor', 'as' => '.doctor.'], function () {
   Route::get('/delete/{cat_id}', [DoctorController::class,'destroy'])->name('delete');
  
 });
+
+Route::group(['prefix' => 'Appointment', 'as' => '.Appointment.'], function () {
+  Route::get('/', [AppointmentController::class, 'index'])->name('index');
+  Route::get('/add', [AppointmentController::class, 'create'])->name('create');
+  Route::post('/store', [AppointmentController::class, 'store'])->name('store');
+  Route::get('/edit/{cat_id}', [AppointmentController::class, 'edit'])->name('edit');
+  Route::put('/update/{cat_id}', [AppointmentController::class, 'update'])->name('update');
+  Route::get('/delete/{cat_id}', [AppointmentController::class,'destroy'])->name('delete');
+ 
+});
+
+Route::group(['prefix' => 'Department', 'as' => '.Department.'], function () {
+  Route::get('/', [DepartmentController::class, 'index'])->name('index');
+  Route::get('/add', [DepartmentController::class, 'create'])->name('create');
+  Route::post('/store', [DepartmentController::class, 'store'])->name('store');
+  Route::get('/edit/{cat_id}', [DepartmentController::class, 'edit'])->name('edit');
+  Route::put('/update/{cat_id}', [DepartmentController::class, 'update'])->name('update');
+  Route::get('/delete/{cat_id}', [DepartmentController::class,'destroy'])->name('delete');
+ 
+});
+
 
 
 });

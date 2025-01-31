@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use App\Models\Department;
+use App\Models\Doctor;
+use App\Traits\Common; 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 
 
 class AppointmentController extends Controller
@@ -11,9 +16,15 @@ class AppointmentController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     use Common;
     public function index()
     {
-        //
+
+        $departments = Department::select('id', 'departmentName')->get();
+        $docs = Doctor::select('id', 'name')->get();
+        return view('dashboard\appointment\Appointment' , compact('departments','docs'));
+
     }
 
     /**
@@ -21,7 +32,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::select('id', 'departmentName')->get();
+        return view('dashboard\appointment\Appointment' );
     }
     public function blog()
     {
